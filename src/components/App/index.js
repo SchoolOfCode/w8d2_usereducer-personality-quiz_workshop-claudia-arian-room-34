@@ -4,17 +4,17 @@ import ResultsDisplay from "../ResultsDisplay";
 import { questionData } from "../../libs/questionData";
 import { useReducer, useState } from "react";
 
-const initialState = [];
+const initialState = { quizResults: [] };
 
 function reducer(state, action) {
   console.log(state);
   switch (action.type) {
     case "ADD_ANSWER": {
-      const newAnswer = action.id;
-      return [...state, newAnswer];
+      const newAnswer = action.choice;
+      return { quizResults: [...state.quizResults, newAnswer]};
     }
     case "RESET_ANSWERS": {
-      return [];
+      return { quizResults: []};
     }
     default:
       return state;
@@ -28,7 +28,7 @@ function App() {
   function handleAnswerClick(choiceId) {
     console.log(`handleAnswerClick ran, user clicked choice "${choiceId}"`);
     console.log(choiceId, "choiceID");
-    return dispatch({ type: "ADD_ANSWER", id: `${choiceId}` });
+    return dispatch({ type: "ADD_ANSWER", id: choiceId });
   }
 
   function handleResetButtonClick() {
