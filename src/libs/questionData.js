@@ -2,48 +2,48 @@
 
 export const questionData = [
   {
-    questionText: "Sample question 1",
+    questionText: "In the workplace I am... ",
     choices: [
-      "sample answer choice a",
-      "sample answer choice b",
-      "sample answer choice c",
-      "sample answer choice d",
+      "Hardworking and organised",
+      "Friendly and flexible",
+      "Kind and quiet",
+      "Creative and full of ideas",
     ],
   },
   {
-    questionText: "Sample question 2",
+    questionText: "I tend to... ",
     choices: [
-      "sample answer choice a",
-      "sample answer choice b",
-      "sample answer choice c",
-      "sample answer choice d",
+      "Mostly look for affirmation from others",
+      "Mostly do what I think is best",
+      "Always do what I think is best",
+      "Always look for affirmation from others",
     ],
   },
   {
-    questionText: "Sample question 3",
+    questionText: "I am typically led by...",
     choices: [
-      "sample answer choice a",
-      "sample answer choice b",
-      "sample answer choice c",
-      "sample answer choice d",
+      "Mostly my head",
+      "Mostly my heart",
+      "My head",
+      "my heart",
     ],
   },
   {
-    questionText: "Sample question 4",
+    questionText: "In romantic relationships we value...",
     choices: [
-      "sample answer choice a",
-      "sample answer choice b",
-      "sample answer choice c",
-      "sample answer choice d",
+      "Trust and security",
+      "Keeping the romance alive",
+      "Keeping things fun and exciting",
+      "Challenging each other's ideas",
     ],
   },
   {
-    questionText: "Sample question 5",
+    questionText: "I would enjoy a career in...",
     choices: [
-      "sample answer choice a",
-      "sample answer choice b",
-      "sample answer choice c",
-      "sample answer choice d",
+      "accounting, education or admin",
+      "Social work, journalism or customer service",
+      "Acting, photography or teaching",
+      "Medicine, sales or research",
     ],
   },
 ].map(({ questionText, choices }, questionId) => {

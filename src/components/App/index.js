@@ -47,6 +47,7 @@ function App() {
       }
     }
     let arr = Object.values(count);
+    console.log(arr)
     let max = Math.max(...arr);
     console.log(max);
     setResult(max);
