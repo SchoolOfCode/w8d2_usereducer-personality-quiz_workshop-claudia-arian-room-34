@@ -2,10 +2,27 @@ import "./App.css";
 import QuestionDisplay from "../QuestionDisplay";
 import ResultsDisplay from "../ResultsDisplay";
 import { questionData } from "../../libs/questionData";
-import { useState } from "react";
+import { useReducer, useState } from "react";
+
+
+const initialState =  { quizResults: [] };
+
+function reducer(state, action){
+  switch (action.type){
+    case 'ADD_ANSWER': {
+      return [...state, action.id];
+    }
+    case 'RESET_ANSWER': {
+      return [];
+    }
+    default: 
+    return state;
+  } 
+}
 
 function App() {
   const [result, setResult] = useState("...pending");
+  const [choice, dispatch] = useReducer(reducer, initialState);
 
   function handleAnswerClick(choiceId) {
     console.log(`handleAnswerClick ran, user clicked choice "${choiceId}"`);
