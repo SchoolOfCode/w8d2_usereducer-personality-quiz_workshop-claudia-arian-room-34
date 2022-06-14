@@ -11,10 +11,10 @@ function reducer(state, action) {
   switch (action.type) {
     case "ADD_ANSWER": {
       const newAnswer = action.choice;
-      return { quizResults: [...state.quizResults, newAnswer]};
+      return { quizResults: [...state.quizResults, newAnswer] };
     }
     case "RESET_ANSWERS": {
-      return { quizResults: []};
+      return { quizResults: [] };
     }
     default:
       return state;
@@ -28,7 +28,7 @@ function App() {
   function handleAnswerClick(choiceId) {
     console.log(`handleAnswerClick ran, user clicked choice "${choiceId}"`);
     console.log(choiceId, "choiceID");
-    return dispatch({ type: "ADD_ANSWER", id: choiceId });
+    return dispatch({ type: "ADD_ANSWER", choice: choiceId });
   }
 
   function handleResetButtonClick() {
@@ -39,7 +39,7 @@ function App() {
   function calculateResults() {
     const count = {};
 
-    for (const element of choice) {
+    for (const element of choice.quizResults) {
       if (count[element]) {
         count[element] += 1;
       } else {
@@ -47,9 +47,9 @@ function App() {
       }
     }
     let arr = Object.values(count);
-    console.log(arr)
+
     let max = Math.max(...arr);
-    console.log(max);
+
     setResult(max);
   }
 
