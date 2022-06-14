@@ -4,20 +4,21 @@ import ResultsDisplay from "../ResultsDisplay";
 import { questionData } from "../../libs/questionData";
 import { useReducer, useState } from "react";
 
+const initialState = [];
 
-const initialState =  { quizResults: [] };
-
-function reducer(state, action){
-  switch (action.type){
-    case 'ADD_ANSWER': {
-      return [...state, action.id];
+function reducer(state, action) {
+  console.log(state);
+  switch (action.type) {
+    case "ADD_ANSWER": {
+      const newAnswer = action.id;
+      return [...state, newAnswer];
     }
-    case 'RESET_ANSWER': {
+    case "RESET_ANSWERS": {
       return [];
     }
-    default: 
-    return state;
-  } 
+    default:
+      return state;
+  }
 }
 
 function App() {
@@ -26,15 +27,29 @@ function App() {
 
   function handleAnswerClick(choiceId) {
     console.log(`handleAnswerClick ran, user clicked choice "${choiceId}"`);
-    // TODO: Write your code for step 5 here!
+    console.log(choiceId, "choiceID");
+    return dispatch({ type: "ADD_ANSWER", id: `${choiceId}` });
   }
 
   function handleResetButtonClick() {
-    // TODO: Write your code for step 6 here!
+    console.log(`handleResetButtonClick ran, user reset`);
+    return dispatch({ type: "RESET_ANSWERS" });
   }
 
   function calculateResults() {
-    // TODO: Write your code for step 7 here!
+    const count = {};
+
+    for (const element of choice) {
+      if (count[element]) {
+        count[element] += 1;
+      } else {
+        count[element] = 1;
+      }
+    }
+    let arr = Object.values(count);
+    let max = Math.max(...arr);
+    console.log(max);
+    setResult(max);
   }
 
   return (
